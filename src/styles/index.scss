@@ -1,3 +1,17 @@
-/* 
-    General Styles
-*/
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .cardscroll {
+    flex: 0 0 auto;
+  }
+}
+
+.personajes {
+    color: rgb(238, 255, 0)
+}
+
+.bg-negro{
+    background-color: rgb(26, 26, 26);
+}
