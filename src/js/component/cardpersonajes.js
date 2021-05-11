@@ -12,7 +12,7 @@ const CardPersonajes = props => {
 					<p className="card-text">
 						Some quick example text to build on the card title and make up the bulk of the cards content.
 					</p>
-					<Link to={"/single/" + props.index}>
+					<Link to={"/personajes/" + props.index}>
 						<span className="btn btn-light">Leer mas</span>
 					</Link>
 					<button type="button" className="ml-2 btn btn-dark">
