@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -17,15 +20,17 @@ export const Navbar = () => {
 			</Link>
 			<div className="ml-auto">
 				<DropdownButton id="dropdown-basic-button" variant="dark" title="Favoritos">
-					<Dropdown.Item href="#/action-1" className="d-flex justify-content-between align-items-center">
-						<span>Luke Skywalker</span> <i className="fas fa-trash-alt ml-5" />
-					</Dropdown.Item>
-					<Dropdown.Item href="#/action-2" className="d-flex justify-content-between align-items-center">
-						<span>Arturito</span> <i className="fas fa-trash-alt ml-5" />
-					</Dropdown.Item>
-					<Dropdown.Item href="#/action-3" className="d-flex justify-content-between align-items-center">
-						<span>Mr Bean</span> <i className="fas fa-trash-alt ml-5" />
-					</Dropdown.Item>
+					{store.favoritos.map((favorito, index) => {
+						return (
+							<Dropdown.Item
+								href="#/action-1"
+								key={index}
+								className="d-flex justify-content-between align-items-center">
+								<span>{favorito}</span>{" "}
+								<i className="fas fa-trash-alt ml-5" onClick={() => actions.eliminarFavorito(index)} />
+							</Dropdown.Item>
+						);
+					})}
 				</DropdownButton>
 			</div>
 		</nav>

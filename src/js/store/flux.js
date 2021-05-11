@@ -59,6 +59,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			agregarFavorito: nuevo => {
+				const store = getStore();
+				if (!store.favoritos.includes(nuevo)) {
+					let newListaFavoritos = [...store.favoritos, nuevo];
+					setStore({ favoritos: newListaFavoritos });
+				}
+			},
+			eliminarFavorito: i => {
+				const store = getStore();
+				let newListaFavoritos = store.favoritos.filter((element, index) => {
+					if (i != index) return element;
+				});
+				setStore({ favoritos: newListaFavoritos });
 			}
 		}
 	};
