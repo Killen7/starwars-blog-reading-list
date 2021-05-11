@@ -7,16 +7,16 @@ export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	return (
-		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
-
-			<hr className="my-4" />
-
-			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
-					Back home
-				</span>
-			</Link>
+		<div className="container d-flex flex-row bg-negro rounded p-3">
+			<img src="https://picsum.photos/400/400" alt="..." />
+			<div className="d-flex flex-column text-white">
+				<h1 className="text-center">{store.personajes[params.theid].name}</h1>
+				<p className="text-center">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+					industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+					and scrambled it to make a type specimen book
+				</p>
+			</div>
 		</div>
 	);
 };

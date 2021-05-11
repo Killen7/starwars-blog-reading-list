@@ -15,3 +15,33 @@
 .bg-negro{
     background-color: rgb(26, 26, 26);
 }
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar-button:increment,.scrolling-wrapper-flexbox::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar:horizontal {
+    height: 15px;
+}
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar-thumb {
+    background-color: #c9c9c9;
+    border-radius: 20px;
+    border: 2px solid #000000;
+}
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+.parrafo {
+    font-size: 25px;
+}

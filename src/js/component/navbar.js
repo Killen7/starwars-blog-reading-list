@@ -16,7 +16,7 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto">
-				<DropdownButton id="dropdown-basic-button" title="Favoritos">
+				<DropdownButton id="dropdown-basic-button" variant="dark" title="Favoritos">
 					<Dropdown.Item href="#/action-1" className="d-flex justify-content-between align-items-center">
 						<span>Luke Skywalker</span> <i className="fas fa-trash-alt ml-5" />
 					</Dropdown.Item>
