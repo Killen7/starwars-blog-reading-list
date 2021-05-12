@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			personajes: [],
 			planetas: [],
-			favoritos: []
+			favoritos: [],
+			detalle: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -45,6 +46,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error);
 				}
+
+				//detalles personajes
 			},
 			changeColor: (index, color) => {
 				//get the store
@@ -73,6 +76,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (i != index) return element;
 				});
 				setStore({ favoritos: newListaFavoritos });
+			},
+
+			getDetallePersonaje: async uid => {
+				try {
+					const id = parseInt(uid, 10) + 1;
+					const res = await fetch("https://www.swapi.tech/api/people/" + id);
+					const data = await res.json();
+					console.log("AsyncDetalles:", data.result.properties);
+					setStore({
+						detalle: data.result.properties
+					});
+				} catch {}
 			}
 		}
 	};

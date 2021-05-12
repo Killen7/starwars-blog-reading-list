@@ -6,15 +6,19 @@ import { Context } from "../store/appContext";
 export const Personajes = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	let numerourl = parseInt(params.uid, 10) + 1;
+
+	useEffect(() => {
+		actions.getDetallePersonaje(params.uid);
+	}, []);
+
 	return (
 		<div className="container d-flex flex-row bg-negro rounded p-3">
-			<img src="https://picsum.photos/400/400" alt="..." />
+			<img src={`https://starwars-visualguide.com/assets/img/characters/${numerourl}.jpg`} alt="..." />
 			<div className="d-flex flex-column text-white">
-				<h1 className="text-center">{store.personajes[params.theid].name}</h1>
+				<h1 className="text-center">{store.personajes[params.uid].name}</h1>
 				<p className="text-center parrafo">
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-					industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-					and scrambled it to make a type specimen book
+					color de ojos: {store.detalle != null ? store.detalle.eye_color : ""}
 				</p>
 			</div>
 		</div>
@@ -22,5 +26,6 @@ export const Personajes = props => {
 };
 
 Personajes.propTypes = {
-	match: PropTypes.object
+	match: PropTypes.object,
+	uid: PropTypes.string
 };

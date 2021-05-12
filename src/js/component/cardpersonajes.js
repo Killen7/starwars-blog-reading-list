@@ -7,9 +7,15 @@ const CardPersonajes = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="cardscroll mx-2 mb-3" key={props.index}>
+		<div className="cardscroll mx-2 mb-3">
 			<div className="card border-0" style={{ width: "18rem" }}>
-				<img src="https://picsum.photos/200/400" className="card-img-top" width="400" height="200" alt="..." />
+				<img
+					src={`https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`}
+					className="card-img-top"
+					width="400"
+					height="auto"
+					alt="..."
+				/>
 				<div className="card-body bg-negro text-white">
 					<h5 className="card-title">{props.name}</h5>
 					<p className="card-text">
@@ -35,5 +41,6 @@ export default CardPersonajes;
 
 CardPersonajes.propTypes = {
 	name: PropTypes.string,
+	uid: PropTypes.string,
 	index: PropTypes.number
 };

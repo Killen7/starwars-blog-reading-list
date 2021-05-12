@@ -15,7 +15,7 @@ export const Home = () => {
 				{store.personajes.map((item, index) => {
 					return (
 						<div key={index}>
-							<CardPersonajes name={item.name} index={index} />
+							<CardPersonajes name={item.name} uid={item.uid} index={index} />
 						</div>
 					);
 				})}
